@@ -1,20 +1,17 @@
 #include <iostream>
+#include <iterator>
+#include <algorithm>
 
 bool isPalindrome(const std::string & text)
 {
-    size_t len = text.length();
+    auto reverse_text = text;
 
-    for (int i = 0; i < len; ++i)
-    {
-        if(text[i] != text[len -1 - i])
-        {
-            return false;
-        }
-    }
-    return true;
+    std::reverse(std::begin(reverse_text), std::end(reverse_text));
+
+    return (text == reverse_text);
 }
 
 int main()
 {
-    std::cout << isPalindrome("ala") << std::endl;
+    std::cout << isPalindrome("kobylamamalybok") << std::endl;
 }
